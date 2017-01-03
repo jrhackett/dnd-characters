@@ -1,12 +1,21 @@
+var User = require('./models/user').User;
+var Character = require('./models/user').Character;
+
 module.exports = function(app, passport) {
 
 // normal routes ===============================================================
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('index.ejs', {
-            user : req.user
-        });
+        Character.find({user:req.user})
+            .exec(function (err, characters) {
+              if (err) return console.log(err);
+              console.log('The creator is %s', characters);
+                res.render('index.ejs', {
+                    user : req.user,
+                    char : characters[0]
+                });
+            });
     });
 
     // PROFILE SECTION =========================
@@ -22,6 +31,27 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
+    // NEW CHARACTER ========================
+    // show the new character form
+    app.get('/character/new', function(req, res) {
+        res.render('character/form.ejs', {
+            user: req.user
+        });
+    });
+
+    // process the new character form
+    app.post('/character/new', function(req, res) {
+        var newCharacter = Character();
+        newCharacter.name = req.body.name;
+        newCharacter.user = req.user;
+        req.user.characters.push(newCharacter);
+        newCharacter.save(function(err) {
+            req.user.save(function(err) {
+                res.redirect('/');
+            });
+        });
+    });
+
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
@@ -30,14 +60,16 @@ module.exports = function(app, passport) {
         // LOGIN ===============================
         // show the login form
         app.get('/login', function(req, res) {
-            res.render('login.ejs', { message: req.flash('loginMessage') });
+            res.render('login.ejs', {
+                message: req.flash('loginMessage')
+            });
         });
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
             successRedirect : '/profile', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
+            failureFlash : true, // allow flash messages
         }));
 
         // SIGNUP =================================

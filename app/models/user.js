@@ -26,8 +26,14 @@ var userSchema = mongoose.Schema({
         token        : String,
         email        : String,
         name         : String
-    }
+    },
 
+    characters       : [ { type: mongoose.Schema.Types.ObjectId, ref: 'Character' } ]
+});
+
+var characterSchema = mongoose.Schema({
+    name: String,
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 // generating a hash
@@ -41,4 +47,4 @@ userSchema.methods.validPassword = function(password) {
 };
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('User', userSchema);
+module.exports = {'User': mongoose.model('User', userSchema), 'Character': mongoose.model('Character', characterSchema)};
