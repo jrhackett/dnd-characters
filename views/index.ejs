@@ -16,7 +16,8 @@
                     <h3>Recent Characters</h3>
                     <% for(var i = char.length - 1; i >= 0 && i >= char.length - 3; i--) { %>
                         <p><span><%= char[i].name %></span>
-                        <span> <a href = "/character/<%- char[i]._id %>">Show</a></span></p>
+                        <span> <a href = "/character/<%- char[i]._id %>">Show</a></span>
+                        <span> <a href = "/character/<%- char[i]._id %>/delete">Delete</a></span></p>
                     <% } %>
                 <% } %>
                 <a href="/character/new" class = "btn btn-default"><span class="fa fa-user-plus"></span> New Character</a>

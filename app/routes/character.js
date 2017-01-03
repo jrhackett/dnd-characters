@@ -48,7 +48,19 @@ module.exports = function(app, passport) {
     });
 
     // DELETE ========================
-    app.delete('/character/:id/edit', function(req, res) {
-
+    app.get('/character/:id/delete', function(req, res) {
+        Character.findById(req.params.id, function(err, character) {
+            if (err) {
+                console.log('GET Error: There was a problem retrieving: ' + err);
+            } else {
+                character.remove(function(err, character) {
+                    if(err) {
+                        console.log('DELETE Error: There was a problem deleting: ' + err);
+                    } else {
+                        res.redirect('/');
+                    }
+                });
+            }
+        });
     });
 };
