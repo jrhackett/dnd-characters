@@ -10,7 +10,6 @@ module.exports = function(app, passport) {
         Character.find({user:req.user})
             .exec(function (err, characters) {
               if (err) return console.log(err);
-              console.log('The creator is %s', characters);
                 res.render('index.ejs', {
                     user : req.user,
                     char : characters
@@ -31,7 +30,10 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
-    // NEW CHARACTER ========================
+// =============================================================================
+// CHARACTER ROUTES ============================================================
+// =============================================================================
+    // CREATE ========================
     // show the new character form
     app.get('/character/new', function(req, res) {
         res.render('character/form.ejs', {
@@ -50,6 +52,30 @@ module.exports = function(app, passport) {
                 res.redirect('/');
             });
         });
+    });
+
+    // READ ========================
+    app.get('/character/:id', function(req, res) {
+        Character.findById(req.params.id, function(err, character) {
+            if (err) {
+                console.log('GET Error: There was a problem retrieving: ' + err);
+            } else {
+                res.render('character/show.ejs', {
+                    user: req.user,
+                    char: character
+                });
+            }
+        });
+    });
+
+    // UPDATE ========================
+    app.put('/character/:id/edit', function(req, res) {
+
+    });
+
+    // DELETE ========================
+    app.delete('/character/:id/edit', function(req, res) {
+
     });
 
 // =============================================================================
