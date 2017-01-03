@@ -43,8 +43,35 @@ module.exports = function(app, passport) {
     });
 
     // UPDATE ========================
-    app.put('/character/:id/edit', function(req, res) {
+    // show the edit view
+    app.get('/character/:id/edit', function(req, res) {
+        Character.findById(req.params.id, function(err, character) {
+            if (err) {
+                console.log('GET Error: There was a problem retrieving: ' + err);
+            } else {
+                res.render('character/edit.ejs', {
+                    user: req.user,
+                    char: character
+                });
+            }
+        });
+    });
 
+    //process the character edits
+    app.post('/character/:id/edit', function(req, res) {
+        Character.findById(req.params.id, function(err, character) {
+            if (err) {
+                console.log('GET Error: There was a problem retrieving: ' + err);
+            } else {
+                character.name = req.body.name;
+                character.save(function(err) {
+                    res.render('character/show.ejs', {
+                        user: req.user,
+                        char: character
+                    });
+                });
+            }
+        });
     });
 
     // DELETE ========================

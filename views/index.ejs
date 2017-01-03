@@ -17,6 +17,7 @@
                     <% for(var i = char.length - 1; i >= 0 && i >= char.length - 3; i--) { %>
                         <p><span><%= char[i].name %></span>
                         <span> <a href = "/character/<%- char[i]._id %>">Show</a></span>
+                        <span> <a href = "/character/<%- char[i]._id %>/edit">Edit</a></span>
                         <span> <a href = "/character/<%- char[i]._id %>/delete">Delete</a></span></p>
                     <% } %>
                 <% } %>
