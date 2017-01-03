@@ -1,5 +1,5 @@
-var User = require('./models/user').User;
-var Character = require('./models/user').Character;
+var User = require('./models/user');
+var Character = require('./models/character');
 
 module.exports = function(app, passport) {
 
@@ -13,7 +13,7 @@ module.exports = function(app, passport) {
               console.log('The creator is %s', characters);
                 res.render('index.ejs', {
                     user : req.user,
-                    char : characters[0]
+                    char : characters
                 });
             });
     });
