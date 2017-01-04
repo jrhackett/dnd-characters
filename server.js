@@ -8,12 +8,13 @@ var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
+var path 		 = require('path');
 
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 
 var configDB = require('./config/database.js');
 
@@ -29,6 +30,7 @@ app.use(bodyParser()); // get information from html forms
 app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
+app.set('views', path.join(__dirname, '/app/views'));
 
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
