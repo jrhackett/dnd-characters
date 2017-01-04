@@ -1,30 +1,64 @@
 <!-- views/index.ejs -->
-<!doctype html>
-<html>
-<head>
-    <title>D&amp;D Characters</title>
-</head>
-<body>
-    <% include ../partials/header %>
+<% include ../partials/head %>
+<% include ../partials/header %>
+<!-- 
+<div class="container">
+    <div class="jumbotron text-center">
+        <h2>Show Character</h2>
+        <p>Name: <%= char.name %></p>
+        <p>Class: <%= char.class %></p>
+        <span> <a href = "/character/<%- char._id %>/edit" class = "btn btn-info">Edit</a></span>
+        <form method = "post" name = "deletecharacter" action = "/character/<%- char._id %>/edit" style = "display: inline-block;">
+            <input type="hidden" name="_method" value="delete"/>
+            <button type="submit" class = "btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div> -->
 
-    <div class="container">
-
-        <div class="jumbotron text-center">
-            <h2>Show Character</h2>
-            <p><%= char.name %></p>
+<div class = "container">
+    <div class = "row">
+        <h2 class = "text-center">Character Details</h2>
+        <div class = "text-center section-button">
+            <a class = "btn btn-default">01 Overview</a>
+            <a class = "btn btn-default">02 Abilities</a>
+            <a class = "btn btn-default">03 Combat &amp; Equipment</a>
+            <a class = "btn btn-default">04 Feats &amp; Traits</a>
+            <a class = "btn btn-default">05 Spells</a>
+        </div>
+        <div class = "col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12 outer-col left">
+            <div class = "field-group">
+                <p class = "value"><%= char.name %></p>
+                <p class = "label">CHARACTER NAME</p>
+            </div>
+            <div class = "inner-col left">
+                <div class = "field-group">
+                    <p class = "value"><%= char.level %></p>
+                    <p class = "label">LEVEL</p>
+                </div>
+            </div>
+            <div class = "inner-col right">
+                <div class = "field-group">
+                    <p class = "value"><%= char.class %></p>
+                    <p class = "label">CLASS</p>
+                </div>
+            </div>
+            <div class = "field-group bottom">
+                <p class = "value"><%= char.alignment %></p>
+                <p class = "label">ALIGNMENT</p>
+            </div>
+        </div>
+        <div class = "col-lg-5 col-md-5 col-sm-12 col-xs-12 outer-col right">
+            <p class = "details">Lorem</p>
+        </div>
+        <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
             <span> <a href = "/character/<%- char._id %>/edit" class = "btn btn-info">Edit</a></span>
             <form method = "post" name = "deletecharacter" action = "/character/<%- char._id %>/edit" style = "display: inline-block;">
                 <input type="hidden" name="_method" value="delete"/>
                 <button type="submit" class = "btn btn-danger">Delete</button>
             </form>
         </div>
-
     </div>
+</div>
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/20ce3dbf5c.js"></script>
-</body>
-</html>
+<link href = "../assets/stylesheets/character.css" rel = "stylesheet" />
+<% include ../partials/footer %>

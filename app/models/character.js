@@ -4,6 +4,11 @@ var User = require('./user');
 
 var characterSchema = mongoose.Schema({
     name: String,
+    class: String,
+    level: String,
+    race: String,
+    background: String,
+    alignment: String,
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 

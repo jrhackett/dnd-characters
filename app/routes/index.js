@@ -39,7 +39,8 @@ module.exports = function(app, passport) {
     // show the login form
     app.get('/login', function(req, res) {
         res.render('login.ejs', {
-            message: req.flash('loginMessage')
+            message: req.flash('loginMessage'),
+            user: req.user
         });
     });
 

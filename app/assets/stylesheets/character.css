@@ -1,0 +1,54 @@
+.field-group {
+	margin: 15px 0;
+	display: block;
+}
+
+.field-group .value {
+	color: #333;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 0;
+  padding: 0;
+  font-size: 1.6em;
+}
+
+.field-group .label {
+	color: #ccc;
+	padding: 0;
+}
+
+.field-group.bottom {
+	width: 50%;
+	display: inline-block;
+	padding-right: 15px;
+}
+
+.outer-col.left {
+	border-left: 1px solid #e9c862;
+	padding: 0 50px;
+}
+
+.section-button {
+	margin-bottom: 20px;
+}
+
+.inner-col {
+	width: 50%;
+}
+
+.inner-col.left {
+	padding-left: 0;
+	padding-right: 15px;
+	float: left;
+}
+
+.inner-col.right {
+	padding-left: 15px;
+	padding-right: 0;
+	float: right;
+}
+
+.details {
+	margin-top: 15px;
+	padding: 15px;
+	background-color: #efefef;
+}

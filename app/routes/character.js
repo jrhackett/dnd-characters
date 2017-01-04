@@ -77,6 +77,7 @@ module.exports = function(app, passport) {
                 console.log('GET Error: There was a problem retrieving: ' + err);
             } else {
                 character.name = req.body.name;
+                character.class = req.body.class;
                 character.save(function(err) {
                     res.render('character/show.ejs', {
                         user: req.user,
