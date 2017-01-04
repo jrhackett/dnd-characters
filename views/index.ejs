@@ -15,13 +15,16 @@
                 <% if (char) { %>
                     <h3>Recent Characters</h3>
                     <% for(var i = char.length - 1; i >= 0 && i >= char.length - 3; i--) { %>
-                        <p><span><%= char[i].name %></span>
-                        <span> <a href = "/character/<%- char[i]._id %>">Show</a></span>
-                        <span> <a href = "/character/<%- char[i]._id %>/edit">Edit</a></span>
-                        <span> <a href = "/character/<%- char[i]._id %>/delete">Delete</a></span></p>
+                        <p><%= char[i].name %></p>
+                        <span> <a href = "/character/<%- char[i]._id %>" class = "btn btn-primary">Show</a></span>
+                        <span> <a href = "/character/<%- char[i]._id %>/edit" class = "btn btn-info">Edit</a></span>
+                        <form method = "post" name = "deletecharacter" action = "/character/<%- char[i]._id %>/edit" style = "display: inline-block;">
+                            <input type="hidden" name="_method" value="delete"/>
+                            <button type="submit" class = "btn btn-danger">Delete</button>
+                        </form>
                     <% } %>
                 <% } %>
-                <a href="/character/new" class = "btn btn-default"><span class="fa fa-user-plus"></span> New Character</a>
+                <p><a href="/character/new" class = "btn btn-default"><span class="fa fa-user-plus"></span> New Character</a></p>
             <% } else { %>
                 <p>Login or Register with:</p>
 

@@ -7,6 +7,19 @@ module.exports = function(app, passport) {
     // CHARACTER ROUTES ============================================================
     // =============================================================================
 
+    // INDEX ========================
+    // show all characters for that user
+    app.get('/character/all', function(req, res) {
+        Character.find({user:req.user})
+            .exec(function (err, characters) {
+              if (err) return console.log(err);
+                res.render('character/index.ejs', {
+                    user : req.user,
+                    char : characters
+                });
+            });
+    });
+
     // CREATE ========================
     // show the new character form
     app.get('/character/new', function(req, res) {
@@ -58,7 +71,7 @@ module.exports = function(app, passport) {
     });
 
     //process the character edits
-    app.post('/character/:id/edit', function(req, res) {
+    app.put('/character/:id/edit', function(req, res) {
         Character.findById(req.params.id, function(err, character) {
             if (err) {
                 console.log('GET Error: There was a problem retrieving: ' + err);
@@ -75,7 +88,8 @@ module.exports = function(app, passport) {
     });
 
     // DELETE ========================
-    app.get('/character/:id/delete', function(req, res) {
+
+    app.delete('/character/:id/edit', function(req, res) {
         Character.findById(req.params.id, function(err, character) {
             if (err) {
                 console.log('GET Error: There was a problem retrieving: ' + err);

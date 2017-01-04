@@ -19,6 +19,11 @@
                 <input type="hidden" value="PUT" name="_method">
                 <button type="submit" class="btn btn-warning btn-lg">Update Character</button>
             </form>
+            <span> <a href = "/character/<%- char._id %>/" class = "btn btn-info">Show</a></span>
+            <form method = "post" name = "deletecharacter" action = "/character/<%- char._id %>/edit" style = "display: inline-block;">
+                <input type="hidden" name="_method" value="delete"/>
+                <button type="submit" class = "btn btn-danger">Delete</button>
+            </form>
         </div>
 
     </div>

@@ -10,13 +10,16 @@
     <div class="container">
 
         <div class="jumbotron text-center">
-            <h2>Show Character</h2>
-            <p><%= char.name %></p>
-            <span> <a href = "/character/<%- char._id %>/edit" class = "btn btn-info">Edit</a></span>
-            <form method = "post" name = "deletecharacter" action = "/character/<%- char._id %>/edit" style = "display: inline-block;">
-                <input type="hidden" name="_method" value="delete"/>
-                <button type="submit" class = "btn btn-danger">Delete</button>
-            </form>
+            <h3>All Characters</h3>
+            <% for (var i = 0; i < char.length; i++) { %>
+                <p><%= char[i].name %></p>
+                <span> <a href = "/character/<%- char[i]._id %>" class = "btn btn-primary">Show</a></span>
+                <span> <a href = "/character/<%- char[i]._id %>/edit" class = "btn btn-info">Edit</a></span>
+                <form method = "post" name = "deletecharacter" action = "/character/<%- char[i]._id %>/edit" style = "display: inline-block;">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class = "btn btn-danger">Delete</button>
+                </form>
+            <% } %>
         </div>
 
     </div>
