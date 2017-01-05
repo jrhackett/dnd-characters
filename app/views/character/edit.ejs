@@ -3,17 +3,132 @@
 <% include ../partials/header %>
 
 <div class="container">
-    <div class="jumbotron text-center">
-        <h2>Edit Character</h2>
+    <div class="row">
+        <h2 class = "text-center">Edit Character</h2>
+        <div class = "text-center section-button">
+            <a id = "overview-button" class = "btn btn-default">01 Overview</a>
+            <a id = "abilities-button" class = "btn btn-default">02 Abilities</a>
+            <a id = "combat-button" class = "btn btn-default">03 Combat &amp; Equipment</a>
+            <a id = "feats-button" class = "btn btn-default">04 Feats &amp; Traits</a>
+            <a id = "spells-button" class = "btn btn-default">05 Spells</a>
+        </div>
         <form action="/character/<%= char._id %>/edit" method="post" name="updatecharacter">
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" name="name" value = "<%= char.name %>">
-            </div>
-            <div class="form-group">
-                <label>Class</label>
-                <input type="text" class="form-control" name="class" value = "<%= char.class %>">
-            </div>
+            <section id = "overview">
+                <div class = "col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12 outer-col left">
+                    <div class = "field-group">
+                        <input type="text" class="form-control value" name="name" value = "<%= char.name %>">
+                        <p class = "label">CHARACTER NAME</p>
+                    </div>
+                    <div class = "inner-col left">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="level" value = "<%= char.level %>">
+                            <p class = "label">LEVEL</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col right">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="class" value = "<%= char.class %>">
+                            <p class = "label">CLASS</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col left">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="race" value = "<%= char.race %>">
+                            <p class = "label">RACE</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col right">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="background" value = "<%= char.background %>">
+                            <p class = "label">BACKGROUND</p>
+                        </div>
+                    </div>
+                    <div class = "field-group bottom">
+                        <input type="text" class="form-control value" name="alignment" value = "<%= char.alignment %>">
+                        <p class = "label">ALIGNMENT</p>
+                    </div>
+                </div>
+                <div class = "col-lg-5 col-md-5 col-sm-12 col-xs-12 outer-col right">
+                    <p class = "details">Lorem</p>
+                </div>
+            </section>
+            <section id = "abilities">
+                <div class = "col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12 outer-col left">
+                    <div class = "inner-col left">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_strength_value" value = "<%= char.stats.strength.value %>">
+                            <p class = "label">STRENGTH</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col right">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_strength_modifier" value = "<%= char.stats.strength.modifier %>">
+                            <p class = "label">MODIFIER</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col left">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_dexterity_value" value = "<%= char.stats.dexterity.value %>">
+                            <p class = "label">DEXTERITY</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col right">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_dexterity_modifier" value = "<%= char.stats.dexterity.modifier %>">
+                            <p class = "label">MODIFIER</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col left">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_constitution_value" value = "<%= char.stats.constitution.value %>">
+                            <p class = "label">CONSTITUTION</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col right">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_constitution_modifier" value = "<%= char.stats.constitution.modifier %>">
+                            <p class = "label">MODIFIER</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col left">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_wisdom_value" value = "<%= char.stats.wisdom.value %>">
+                            <p class = "label">WISDOM</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col right">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_wisdom_modifier" value = "<%= char.stats.wisdom.modifier %>">
+                            <p class = "label">MODIFIER</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col left">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_intelligence_value" value = "<%= char.stats.intelligence.value %>">
+                            <p class = "label">INTELLIGENCE</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col right">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_intelligence_modifier" value = "<%= char.stats.intelligence.modifier %>">
+                            <p class = "label">MODIFIER</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col left">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_charisma_value" value = "<%= char.stats.charisma.value %>">
+                            <p class = "label">CHARISMA</p>
+                        </div>
+                    </div>
+                    <div class = "inner-col right">
+                        <div class = "field-group">
+                            <input type="text" class="form-control value" name="stats_charisma_modifier" value = "<%= char.stats.charisma.modifier %>">
+                            <p class = "label">MODIFIER</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
             <input type="hidden" value="PUT" name="_method">
             <button type="submit" class="btn btn-warning btn-lg">Update Character</button>
         </form>
@@ -25,4 +140,8 @@
     </div>
 </div>
 
+<link href = "../../assets/stylesheets/character.css" rel = "stylesheet" />
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src = "../../assets/javascripts/character.js"></script>
 <% include ../partials/footer %>

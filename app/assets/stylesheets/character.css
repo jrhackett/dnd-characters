@@ -12,8 +12,8 @@
 }
 
 .field-group .label {
-	color: #ccc;
 	padding: 0;
+	color: #ccc;
 }
 
 .field-group.bottom {
@@ -51,4 +51,17 @@
 	margin-top: 15px;
 	padding: 15px;
 	background-color: #efefef;
+}
+
+input.form-control.value {
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#abilities {
+	display: none;
 }

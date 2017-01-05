@@ -9,6 +9,32 @@ var characterSchema = mongoose.Schema({
     race: String,
     background: String,
     alignment: String,
+    stats: {
+    	strength: {
+    		value: String,
+    		modifier: String
+    	},
+    	dexterity: {
+    		value: String,
+    		modifier: String
+    	},
+    	constitution: {
+    		value: String,
+    		modifier: String
+    	},
+    	wisdom: {
+    		value: String,
+    		modifier: String
+    	},
+    	intelligence: {
+    		value: String,
+    		modifier: String
+    	},
+    	charisma: {
+    		value: String,
+    		modifier: String
+    	}
+    },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
