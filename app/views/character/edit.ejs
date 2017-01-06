@@ -15,9 +15,14 @@
         <form action="/character/<%= char._id %>/edit" method="post" name="updatecharacter">
             <% include ./partials/edit_overview %>
             <% include ./partials/edit_abilities %>
+            <% include ./partials/edit_combat %>
+            <% include ./partials/edit_feats %>
+            <% include ./partials/edit_spells %>
             
             <input type="hidden" value="PUT" name="_method">
-            <button type="submit" class="btn btn-warning btn-lg">Update Character</button>
+            <div>
+                <button type="submit" class="btn btn-warning btn-lg">Update Character</button>
+            </div>
         </form>
         <span> <a href = "/character/<%- char._id %>/" class = "btn btn-info">Show</a></span>
         <form method = "post" name = "deletecharacter" action = "/character/<%- char._id %>/edit" style = "display: inline-block;">
