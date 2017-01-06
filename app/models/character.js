@@ -12,6 +12,29 @@ var characterSchema = mongoose.Schema({
     background: { type: String, default: '' },
     alignment: { type: String, default: '' },
     stats: {
+        armor_class: { type: Number, default: 0 },
+        unarmored_armor_class: { type: Number, default: 0 },
+        health: {
+            max: { type: Number, default: 0 },
+            temporary: { type: Number, default: 0 },
+            current: { type: Number, default: 0 }
+        },
+        movement: { type: String, default: '0ft' },
+        hit_dice: {
+            max_d6: { type: Number, default: 0 },
+            max_d8: { type: Number, default: 0 },
+            max_d10: { type: Number, default: 0 },
+            max_d12: { type: Number, default: 0 },
+            current_d6: { type: Number, default: 0 },
+            current_d8: { type: Number, default: 0 },
+            current_d10: { type: Number, default: 0 },
+            current_d12: { type: Number, default: 0 }
+        },
+        death_save: {
+            failures: { type: Number, default: 0 },
+            successes: { type: Number, default: 0 }
+        },
+        conditions: { type: String, default: '' },
     	strength: {
     		value: { type: Number, default: 10 },
     		modifier: { type: String, default: '+0' },
@@ -136,6 +159,7 @@ var characterSchema = mongoose.Schema({
     },
     items: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Item' } ],
     spells: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Spell' } ],
+    feats: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Feat' } ],
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
