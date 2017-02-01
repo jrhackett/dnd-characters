@@ -5,7 +5,7 @@
 
 .field-group .value {
 	color: #333;
-	border-bottom: 1px solid #ccc;
+	border: 0;
 	margin-bottom: 0;
   padding: 0;
   font-size: 1.6em;
@@ -13,7 +13,13 @@
 
 .field-group .label {
 	padding: 0;
-	color: #ccc;
+	color: #d1d7df;
+  border-top: 1px solid #d1d7df;
+  border-radius: 0;
+  text-align: left;
+  padding: 10px 0;
+  width: 100%;
+  display: block;
 }
 
 .field-group.bottom {
@@ -50,14 +56,13 @@
 .details {
 	margin-top: 15px;
 	padding: 15px;
-	background-color: #efefef;
+	background-color: #f4f4f4;
 }
 
 input.form-control.value {
     outline: none;
     border: 0;
     background-color: transparent;
-    border-bottom: 1px solid #ccc;
     border-radius: 0;
     box-shadow: none;
 }

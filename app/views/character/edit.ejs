@@ -20,15 +20,17 @@
             <% include ./partials/edit_spells %>
             
             <input type="hidden" value="PUT" name="_method">
-            <div>
+            <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                 <button type="submit" class="btn btn-warning btn-lg">Update Character</button>
             </div>
         </form>
-        <span> <a href = "/character/<%- char._id %>/" class = "btn btn-info">Show</a></span>
-        <form method = "post" name = "deletecharacter" action = "/character/<%- char._id %>/edit" style = "display: inline-block;">
-            <input type="hidden" name="_method" value="delete"/>
-            <button type="submit" class = "btn btn-danger">Delete</button>
-        </form>
+        <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style = "margin-top: 20px;">
+            <span> <a href = "/character/<%- char._id %>/" class = "btn btn-info">Show</a></span>
+            <form method = "post" name = "deletecharacter" action = "/character/<%- char._id %>/edit" style = "display: inline-block;">
+                <input type="hidden" name="_method" value="delete"/>
+                <button type="submit" class = "btn btn-danger">Delete</button>
+            </form>
+        </div>
     </div>
 </div>
 

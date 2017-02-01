@@ -35,6 +35,7 @@ var characterSchema = mongoose.Schema({
             successes: { type: Number, default: 0 }
         },
         conditions: { type: String, default: '' },
+        proficiency_bonus: { type: String, default: '+0' },
     	strength: {
     		value: { type: Number, default: 10 },
     		modifier: { type: String, default: '+0' },
