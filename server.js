@@ -16,12 +16,12 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var methodOverride = require('method-override');
 
-var configDB = require('./config/database.js');
+var config = require('./config.js');
 
 // configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
+mongoose.connect(config.database_url); // connect to our database
 
-require('./config/passport')(passport); // pass passport for configuration
+require('./passport')(passport, config); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
