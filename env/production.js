@@ -15,4 +15,5 @@ module.exports = {
   		clientSecret  : process.env.GOOGLE_CLIENT_SECRET,
     	callbackURL   : process.env.GOOGLE_CALLBACK_URL
     },
+    session_secret: process.env.SESSION_SECRET
 };

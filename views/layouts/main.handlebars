@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <title>D&amp;D Characters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="sidebar-nav" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="/character/all">MY CHARACTERS</a></li>
+	        <li class = "new-character-button"><a href = "/character/new"><i class = "fa fa-plus"></i></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	      	{{#if user }}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              {{#if user.facebook.token }}
+                {{user.facebook.name}}
+              {{else if user.local.email }}
+								{{user.local.email}}
+             	{{else}}
+                User
+              {{/if}}
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Log out</a></li>
+              </ul>
+            </li>
+	        {{/if}}
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+	{{{ body }}}
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href = "/assets/stylesheets/application.css" rel = "stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/20ce3dbf5c.js"></script>
+  <script src ="/assets/javascripts/application.js"></script>
+</body>
+</html>

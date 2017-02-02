@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="text-center">
+    <h3>All Characters</h3>
+    {{#each character }}
+      <p>{{ this.name }}</p>
+      <span> <a href = "/character/{{ character._id }}" class = "btn btn-primary">Show</a></span>
+      <span> <a href = "/character/{{ character._id }}/edit" class = "btn btn-info">Edit</a></span>
+      <form method = "post" name = "deletecharacter" action = "/character/{{ character._id }}/edit" style = "display: inline-block;">
+          <input type="hidden" name="_method" value="delete"/>
+          <button type="submit" class = "btn btn-danger">Delete</button>
+      </form>
+    {{/each}}
+  </div>
+</div>

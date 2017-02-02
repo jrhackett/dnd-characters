@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="text-center">
+    <h1>D&amp;D Characters</h1>
+    {{#if user}}
+      {{#if char}}
+        <h3>Recent Characters</h3>
+        {{#each char}}
+          <p>{{ this.name }}</p>
+          <span> <a href = "/character/{{ this._id }}" class = "btn btn-primary">Show</a></span>
+          <span> <a href = "/character/{{ this._id }}/edit" class = "btn btn-info">Edit</a></span>
+          <form method = "post" name = "deletecharacter" action = "/character/{{ this._id }}/edit" style = "display: inline-block;">
+            <input type="hidden" name="_method" value="delete"/>
+            <button type="submit" class = "btn btn-danger">Delete</button>
+          </form>
+        {{/each}}
+      {{/if}}
+      <p><a href="/character/new" class = "btn btn-default"><span class="fa fa-user-plus"></span> New Character</a></p>
+    {{else}}
+      <p>Login or register with:</p>
+
+      <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+      <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+      <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+      <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
+      <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
+    {{/if}}
+  </div>
+</div>
