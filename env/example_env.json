@@ -1,0 +1,19 @@
+{
+	"database_url"    : "url",
+  "session_secret" : "secret",
+	"facebookAuth" : {
+    "clientID"      : "id",
+    "clientSecret"  : "secret",
+    "callbackURL"   : "url"
+  },
+  "twitterAuth" : {
+    "consumerKey"       : "key",
+    "consumerSecret"    : "secret",
+    "callbackURL"       : "url"
+  },
+  "googleAuth" : {
+    "clientID"      : "id",
+    "clientSecret"  : "secret",
+    "callbackURL"   : "url"
+  }
+}

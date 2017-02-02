@@ -6,7 +6,11 @@ Still young, the project will only support 5th edition and currently only allows
 
 ## Installation
 
-Installation is a little tricky right now because I'm hiding a lot of my configuration for Passport and my database. I'll update installation as I progress towards launch.
+You'll want to make sure you have Node.js and NPM installed on your machine.
+
+Run `npm install` and wait a couple minutes for everything to install.
+
+You'll have to populate an env.json file in the env folder with several pieces of information. I've included an example of this file. You'll want to fill in this example with all the appropriate information. Once you have this set up, you can run `npm start` to launch the application in the development environment.
 
 ## Contributing
 
@@ -19,13 +23,3 @@ Installation is a little tricky right now because I'm hiding a lot of my configu
 ## Credits
 
 Jacob Hackett
-
-## License
-
-Copyright 2017 Jacob Hackett
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
