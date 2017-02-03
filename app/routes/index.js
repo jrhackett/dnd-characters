@@ -40,7 +40,8 @@ module.exports = function(app, passport) {
   app.get('/login', function(req, res) {
     res.render('login', {
       message: req.flash('loginMessage'),
-      user: req.user
+      user: req.user,
+      layout: 'login'
     });
   });
 
@@ -54,7 +55,10 @@ module.exports = function(app, passport) {
   // SIGNUP =================================
   // show the signup form
   app.get('/signup', function(req, res) {
-    res.render('user/new', { message: req.flash('loginMessage') });
+    res.render('user/new', { 
+      message: req.flash('loginMessage'),
+      layout: 'login' 
+    });
   });
 
   // process the signup form
